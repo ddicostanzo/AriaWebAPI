@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F8790FC0-B078-4D15-A7D7-68D56DD36FF9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AriaWebAPI</RootNamespace>
+    <AssemblyName>AriaWebAPI</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.9.0.4\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="OSU_HL7, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\OSU_HL7\bin\Release\OSU_HL7.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=9.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Configuration.ConfigurationManager.9.0.4\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Pipelines, Version=9.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Pipelines.9.0.4\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Text.Encodings.Web, Version=9.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.9.0.4\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.9.0.0\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.6.3\lib\net462\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AriaAccessAPI\Communication\Communication.cs" />
+    <Compile Include="AriaAccessAPI\Core\AriaAccessAttribute.cs" />
+    <Compile Include="AriaAccessAPI\Core\Diagnosis.cs" />
+    <Compile Include="AriaAccessAPI\Core\Doctor.cs" />
+    <Compile Include="AriaAccessAPI\Core\JsonBool.cs" />
+    <Compile Include="AriaAccessAPI\Core\JsonFloat.cs" />
+    <Compile Include="AriaAccessAPI\Core\JsonInt.cs" />
+    <Compile Include="AriaAccessAPI\Core\Patient.cs" />
+    <Compile Include="AriaAccessAPI\Core\AriaAccessObject.cs" />
+    <Compile Include="AriaAccessAPI\DataTypes\AssociatedResource.cs" />
+    <Compile Include="AriaAccessAPI\Core\JsonDttm.cs" />
+    <Compile Include="AriaAccessAPI\Core\JsonString.cs" />
+    <Compile Include="AriaAccessAPI\DataTypes\CancerStage.cs" />
+    <Compile Include="AriaAccessAPI\DataTypes\DiagnosisLookUpTypesAndValues.cs" />
+    <Compile Include="AriaAccessAPI\DataTypes\FieldInfo.cs" />
+    <Compile Include="AriaAccessAPI\DataTypes\LookUpItem.cs" />
+    <Compile Include="AriaAccessAPI\DataTypes\DiagnosisLookUpItem.cs" />
+    <Compile Include="AriaAccessAPI\DataTypes\Machine.cs" />
+    <Compile Include="AriaAccessAPI\DataTypes\MachineAppointment.cs" />
+    <Compile Include="AriaAccessAPI\Core\Service.cs" />
+    <Compile Include="AriaAccessAPI\DataTypes\PatientClinicalConcept.cs" />
+    <Compile Include="AriaAccessAPI\DataTypes\PatientCourse.cs" />
+    <Compile Include="AriaAccessAPI\DataTypes\PatientName.cs" />
+    <Compile Include="AriaAccessAPI\DataTypes\PatientPlan.cs" />
+    <Compile Include="AriaAccessAPI\DataTypes\PatientPlanSetup.cs" />
+    <Compile Include="AriaAccessAPI\DataTypes\PlanSetup.cs" />
+    <Compile Include="AriaAccessAPI\DataTypes\PrescriptionVolumeInfo.cs" />
+    <Compile Include="AriaAccessAPI\DataTypes\ReferencePoint.cs" />
+    <Compile Include="AriaAccessAPI\DataTypes\StagingCriteria.cs" />
+    <Compile Include="AriaAccessAPI\DataTypes\TreatedField.cs" />
+    <Compile Include="AriaAccessAPI\Enums\DepartmentIdEnum.cs" />
+    <Compile Include="AriaAccessAPI\Enums\MachineIdEnum.cs" />
+    <Compile Include="AriaAccessAPI\Enums\ResourceTypeEnum.cs" />
+    <Compile Include="AriaAccessAPI\Enums\SortModeEnum.cs" />
+    <Compile Include="AriaAccessAPI\Enums\TreatmentTypeEnum.cs" />
+    <Compile Include="AriaAccessAPI\Enums\TxFieldScaleEnum.cs" />
+    <Compile Include="AriaAccessAPI\Helpers\EnvReader.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Billing\GetBillingInfoRequest.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Radiation Therapy Data\GetPatientClinicalConceptsRequest.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Radiation Therapy Data\GetPatientCoursesAndPlanSetupsRequest.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Radiation Therapy Data\GetPatientFieldsTreatedInfoRequest.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Radiation Therapy Data\GetPatientPlanSetupsRequest.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Radiation Therapy Data\GetPatientPlansRequest.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Radiation Therapy Data\GetPatientPlanTxFieldsRequest.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Radiation Therapy Data\GetPatientRefPointsRequest.cs" />
+    <Compile Include="AriaAccessAPI\Responses\Helpers\GetLookUpListResponse.cs" />
+    <Compile Include="AriaAccessAPI\Responses\Radiation Therapy Data\GetPatientClinicalConceptsResponse.cs" />
+    <Compile Include="AriaAccessAPI\Responses\Radiation Therapy Data\GetPatientCoursesAndPlanSetupsResponse.cs" />
+    <Compile Include="AriaAccessAPI\Responses\Radiation Therapy Data\GetPatientFieldsTreatedInfoResponse.cs" />
+    <Compile Include="AriaAccessAPI\Responses\Radiation Therapy Data\GetPatientPlanSetupsResponse.cs" />
+    <Compile Include="AriaAccessAPI\Responses\Radiation Therapy Data\GetPatientPlansResponse.cs" />
+    <Compile Include="AriaAccessAPI\Responses\Radiation Therapy Data\GetPatientPlanTxFieldsResponse.cs" />
+    <Compile Include="AriaAccessAPI\Responses\Radiation Therapy Data\GetPatientRefPointsResponse.cs" />
+    <Compile Include="AriaAccessAPI\Helpers\DeptAndHospitalEnumParser.cs" />
+    <Compile Include="AriaAccessAPI\Enums\HospitalIdEnum.cs" />
+    <Compile Include="AriaAccessAPI\Enums\MachineTypeEnum.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Resources\AssignDoctorToPatientRequest.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Resources\CreateDoctorRequest.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Diagnosis\CreatePatientDiagnosisRequest.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Resources\GetDoctorsAssignedToPatientRequest.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Resources\GetDoctorsInfoRequest.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Resources\GetMachineListRequest.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Diagnosis\GetPatientDiagnosesRequest.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Resources\UpdateDoctorAssignedToPatientRequest.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Appointments\UpdateMachineAppointmentRequest.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Diagnosis\UpdatePatientDiagnosisRequest.cs" />
+    <Compile Include="AriaAccessAPI\Responses\Core\DiagnosisResponse.cs" />
+    <Compile Include="AriaAccessAPI\Responses\Core\DoctorResponse.cs" />
+    <Compile Include="AriaAccessAPI\Responses\Helpers\GetDiagnosisLookUpListResponse.cs" />
+    <Compile Include="AriaAccessAPI\Responses\Resources\GetDoctorsAssignedToPatientResponse.cs" />
+    <Compile Include="AriaAccessAPI\Responses\Resources\GetDoctorsInfoResponse.cs" />
+    <Compile Include="AriaAccessAPI\Responses\Resources\GetMachineListReponse.cs" />
+    <Compile Include="AriaAccessAPI\Responses\Diagnosis\GetPatientDiagnosesResponse.cs" />
+    <Compile Include="AriaAccessAPI\Responses\Core\PatientResponse.cs" />
+    <Compile Include="AriaAccessAPI\DataTypes\UserDefinedAttributes.cs" />
+    <Compile Include="AriaAccessAPI\Enums\DiagnosisLookUpTypeEnum.cs" />
+    <Compile Include="AriaAccessAPI\Enums\LookUpListTypeEnum.cs" />
+    <Compile Include="AriaAccessAPI\Enums\MatchingCriteriaEnum.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Appointments\CreateMachineAppointmentRequest.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Demographics\CreatePatientRequest.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Helpers\GetDiagnosisLookUpListRequest.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Helpers\GetLookUpListRequest.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Appointments\GetMachineAppointmentRequest.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Demographics\GetPatientsRequest.cs" />
+    <Compile Include="AriaAccessAPI\Requests\Demographics\UpdatePatientRequest.cs" />
+    <Compile Include="AriaAccessAPI\Responses\Appointments\GetMachineAppointmentResponse.cs" />
+    <Compile Include="AriaAccessAPI\Responses\Demographics\GetPatientsResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".env">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets" Condition="Exists('packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets'))" />
+  </Target>
+</Project>
