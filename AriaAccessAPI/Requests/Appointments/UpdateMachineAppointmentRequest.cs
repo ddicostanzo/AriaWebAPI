@@ -1,16 +1,12 @@
 ﻿using AriaWebAPI.AriaAccessAPI.Core;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AriaWebAPI.AriaAccessAPI.Requests
 {
     public class UpdateMachineAppointmentRequest : MachineAppointment
     {
         public JsonString AreaName { get; set; } = new JsonString("AWC:UpdateMachineAppointment");
-        public JsonBool IsTimeStampCheckRequired { get; set; }
+        public JsonBool IsTimeStampCheckRequired { get; set; } = new JsonBool(false);
         
         /// <summary>
         /// Constructor for the UpdateMachineAppointment Request. Required to present a previously queried
@@ -21,7 +17,6 @@ namespace AriaWebAPI.AriaAccessAPI.Requests
             base("UpdateMachineAppointmentRequest:http://services.varian.com/AriaWebConnect/Link")
 
         {
-            __type = response.__type;
             ActivityName = response.ActivityName;
             ActivityNote = response.ActivityNote;
             ActivityStatus = response.ActivityStatus;
@@ -38,12 +33,9 @@ namespace AriaWebAPI.AriaAccessAPI.Requests
 
             IsTimeStampCheckRequired.Value = istimestamprequired;
 
+            RequestHelpers.ValidateTimestamp(istimestamprequired, timestamp);
             if (istimestamprequired && timestamp.HasValue)
                 TimeStamp = new JsonDttm(timestamp.Value);
-            if (istimestamprequired && !timestamp.HasValue)
-                throw new ArgumentException("If IsTimeStamp is set to True then a TimeStamp is required");
-            if (!istimestamprequired && timestamp.HasValue)
-                throw new ArgumentException("If IsTimeStamp is set to False then timestamp must be null");
 
 
         }

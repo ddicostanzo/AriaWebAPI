@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace AriaWebAPI.AriaAccessAPI.Core
 {
@@ -11,10 +7,8 @@ namespace AriaWebAPI.AriaAccessAPI.Core
     /// </summary>
     public class JsonDttm : AriaAccessObject
     {
-        public JsonDttm() : base("String:http://services.varian.com/AriaWebConnect/Common") 
+        public JsonDttm() : base("String:http://services.varian.com/AriaWebConnect/Common")
         {
-            Console.WriteLine();
-        
         }
         public JsonDttm(DateTime dttm, bool shortdate = false) : base("String:http://services.varian.com/AriaWebConnect/Common")
         {
@@ -32,7 +26,11 @@ namespace AriaWebAPI.AriaAccessAPI.Core
             set
             {
                 if (string.IsNullOrEmpty(value)) return;
-                DateTime.TryParse(value, out _date);
+                if (!DateTime.TryParse(value, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out _date))
+                {
+                    // Keep _date as default if parsing fails — callers should check ShortDateFlag or use the string value
+                    _date = DateTime.MinValue;
+                }
             }
         }
 

@@ -5,6 +5,7 @@ using System;
 
 namespace AriaWebAPI.AriaAccessAPI.Requests
 {
+    [Obsolete("Billing functionality is not yet implemented. Do not use.", error: false)]
     public class GetBillingInfoRequest : AriaAccessObject
     {
         public JsonDttm StartDate { get; set; }
@@ -24,7 +25,7 @@ namespace AriaWebAPI.AriaAccessAPI.Requests
         public GetBillingInfoRequest(DateTime start, DateTime end, HospitalId hospitalId, bool returncharges, SortMode sortMode = Enums.SortMode.None ):
             base("GetBillingInfoRequest:http://services.varian.com/AriaWebConnect/Link")
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("Billing request functionality has not been implemented. This class is a placeholder.");
 
             //StartDate = new JsonDttm(start);
             //EndDate = new JsonDttm(end);

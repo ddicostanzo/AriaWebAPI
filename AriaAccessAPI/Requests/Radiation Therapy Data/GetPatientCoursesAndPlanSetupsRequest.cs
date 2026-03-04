@@ -1,10 +1,6 @@
 ﻿using AriaWebAPI.AriaAccessAPI.Core;
 using AriaWebAPI.AriaAccessAPI.Enums;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AriaWebAPI.AriaAccessAPI.Requests
 {
@@ -20,6 +16,8 @@ namespace AriaWebAPI.AriaAccessAPI.Requests
         public GetPatientCoursesAndPlanSetupsRequest(string mrn, TreatmentType treatmenttype) :
             base("GetPatientCoursesAndPlanSetupsRequest:http://services.varian.com/AriaWebConnect/Link")
         {
+            if (string.IsNullOrWhiteSpace(mrn))
+                throw new ArgumentNullException(nameof(mrn), "mrn must not be null or empty.");
             PatientId = new JsonString(mrn);
             TreatmentType = new JsonString(treatmenttype.ToString());
         }

@@ -1,16 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Net;
+using System;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AriaWebAPI.AriaAccessAPI.Communication
 {
     public static class Communication
     {
+        // NOTE: TLS certificate validation is enforced by default. Do not disable certificate validation.
+        // If connecting to a server with a self-signed certificate, pin the certificate explicitly.
+        private static readonly HttpClient _httpClient = new HttpClient(new HttpClientHandler
+        {
+            UseDefaultCredentials = true
+        });
+
         /// <summary>
         /// Send data to the Aria Access API
         /// </summary>
@@ -21,30 +23,30 @@ namespace AriaWebAPI.AriaAccessAPI.Communication
         /// <returns>The Response from the API</returns>
         public static string SendData(string request, bool bIsJson, string apiKey, string url)
         {
+            if (string.IsNullOrWhiteSpace(apiKey))
+                throw new ArgumentNullException(nameof(apiKey), "API key must not be null or empty.");
+
             try
             {
-                var sMediaTYpe = bIsJson ? "application/json" : "application/xml";
-                var sResponse = string.Empty;
+                var sMediaType = bIsJson ? "application/json" : "application/xml";
 
-                // Ignore untrusted SSL certs for now. 
-               
-                using (var c = new HttpClient(new HttpClientHandler() { UseDefaultCredentials=true}))
-                {
-                    if (apiKey != null)
-                        c.DefaultRequestHeaders.Add("ApiKey", apiKey);
-                    var task = c.PostAsync(url, new StringContent(request, Encoding.UTF8, sMediaTYpe));
-                   
+                var httpRequest = new HttpRequestMessage(HttpMethod.Post, url);
+                httpRequest.Headers.Add("ApiKey", apiKey);
+                httpRequest.Content = new StringContent(request, Encoding.UTF8, sMediaType);
 
-                    Task.WaitAll(task);
+                var response = _httpClient.SendAsync(httpRequest).GetAwaiter().GetResult();
+                string sResponse = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
 
-                    var responseTask = task.Result.Content.ReadAsStringAsync();
-                    Task.WaitAll(responseTask);
-                    sResponse = responseTask.Result;
-                }
                 return sResponse;
-            } catch (Exception ex)
+            }
+            catch (ArgumentNullException)
             {
-                return "There was an error processign the request: " + ex.Message;
+                throw;
+            }
+            catch (Exception ex)
+            {
+                // Log ex internally here (logging infrastructure not yet in place)
+                return "An error occurred while processing the request.";
             }
         }
     }

@@ -1,9 +1,4 @@
 ﻿using AriaWebAPI.AriaAccessAPI.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AriaWebAPI.AriaAccessAPI.DataTypes
 {
@@ -36,6 +31,9 @@ namespace AriaWebAPI.AriaAccessAPI.DataTypes
         public JsonString Site { get; set; }
         public JsonString Status { get; set; }
         public JsonString Technique { get; set; }
+        // NOTE: "TretmentIntentType" is intentionally spelled this way to match the upstream
+        // Varian Aria SOAP service field name "TretmentIntentTypeField". Do NOT rename this
+        // property, as doing so will break JSON/XML deserialization from the Aria API.
         public JsonString TretmentIntentType { get; set; }
     }
 }

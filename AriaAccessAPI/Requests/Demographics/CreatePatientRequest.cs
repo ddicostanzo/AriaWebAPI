@@ -1,12 +1,5 @@
-﻿//using OSU_HL7.HL7.Core;
-//using OSU_HL7.HL7.DataTypes;
-using AriaWebAPI.AriaAccessAPI.Core;
-using AriaWebAPI.AriaAccessAPI.DataTypes;
+﻿using AriaWebAPI.AriaAccessAPI.Core;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AriaWebAPI.AriaAccessAPI.Requests
 {
@@ -20,14 +13,18 @@ namespace AriaWebAPI.AriaAccessAPI.Requests
     public class CreatePatientRequest : Patient
     {
         public CreatePatientRequest(string lastname, string firstname, string patientid, string departmentid
-                                    , string hostpitalname, System.DateTime birthdate, string sex, string race, bool inpatientflag = false):
+                                    , string hospitalname, System.DateTime birthdate, string sex, string race, bool inpatientflag = false):
             base("CreatePatientRequest:http://services.varian.com/AriaWebConnect/Link")
         {
+            if (string.IsNullOrWhiteSpace(lastname))
+                throw new ArgumentNullException(nameof(lastname), "lastname must not be null or empty.");
+            if (string.IsNullOrWhiteSpace(patientid))
+                throw new ArgumentNullException(nameof(patientid), "patientid must not be null or empty.");
             LastName.Value = lastname;
             FirstName.Value = firstname;
             PatientId1.Value = patientid;
             DepartmentId.Value = departmentid;
-            HospitalName.Value = hostpitalname;
+            HospitalName.Value = hospitalname;
             BirthDate = new JsonDttm(birthdate);
             Sex.Value = sex;
             Race.Value = race;
@@ -35,19 +32,5 @@ namespace AriaWebAPI.AriaAccessAPI.Requests
             AreaName = new JsonString("AWC:CreatePatient");
         }
 
-        //public CreatePatientRequest(Message msg) :
-        //    base("CreatePatientRequest:http://services.varian.com/AriaWebConnect/Link")
-        //{
-        //    var PIDseg = msg.Segments.First(a => a.SegmentID == "PID");
-
-        //    var PatientIdField = (ExtendedCompositeIDWithCheckDigit)PIDseg.Fields.First(a => a.Sequence == 3);
-        //    var mrn = PatientIdField.IdNumber;
-        //    var PatientNameField = (ExtendedPersonName)PIDseg.Fields.First(a => a.Sequence == 5);
-        //    var lastname = PatientNameField.LastName;
-        //    var firstname = PatientNameField.FirstName;
-        //    var middlename = PatientNameField.MiddleNameOrInitial;
-        //    var suffix = (string.IsNullOrEmpty(PatientNameField.Suffix)) ? string.Empty : PatientNameField.Suffix;
-
-        //}
     }
 }

@@ -1,10 +1,6 @@
 ﻿using AriaWebAPI.AriaAccessAPI.Core;
 using AriaWebAPI.AriaAccessAPI.Responses;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AriaWebAPI.AriaAccessAPI.Requests
 {
@@ -87,12 +83,9 @@ namespace AriaWebAPI.AriaAccessAPI.Requests
 
             IsTimeStampCheckRequired = new JsonBool(istimestamprequired);
 
+            RequestHelpers.ValidateTimestamp(istimestamprequired, timestamp);
             if (istimestamprequired && timestamp.HasValue)
                 TimeStamp = new JsonDttm(timestamp.Value);
-            if (istimestamprequired && !timestamp.HasValue)
-                throw new ArgumentException("If IsTimeStamp is set to True then a TimeStamp is required");
-            if (!istimestamprequired && timestamp.HasValue)
-                throw new ArgumentException("If IsTimeStamp is set to False then timestamp must be null");
         }
     }
 }

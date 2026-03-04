@@ -1,9 +1,4 @@
 ﻿using AriaWebAPI.AriaAccessAPI.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AriaWebAPI.AriaAccessAPI.DataTypes
 {
@@ -14,6 +9,7 @@ namespace AriaWebAPI.AriaAccessAPI.DataTypes
     {
         public PatientName() : base("PatientName:http://services.varian.com/AriaWebConnect/Patient") { }
         public JsonString FirstName { get; set; } = new JsonString(64);
+        public JsonString LastName { get; set; } = new JsonString();
         public JsonString MiddleName { get; set; } = new JsonString();
         public JsonString NameSuffix { get; set; } = new JsonString();
         public JsonString Honorific { get; set; } = new JsonString();

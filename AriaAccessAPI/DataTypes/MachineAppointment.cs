@@ -1,11 +1,6 @@
-﻿using AriaWebAPI.AriaAccessAPI.DataTypes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AriaWebAPI.AriaAccessAPI.Core;
 
-namespace AriaWebAPI.AriaAccessAPI.Core
+namespace AriaWebAPI.AriaAccessAPI.DataTypes
 {
     /// <summary>
     /// The MachineAppointment Aria Access Object.
@@ -30,5 +25,4 @@ namespace AriaWebAPI.AriaAccessAPI.Core
         public JsonDttm TimeStamp { get; set; }
         public JsonString UID { get; set; }
     }
-
 }

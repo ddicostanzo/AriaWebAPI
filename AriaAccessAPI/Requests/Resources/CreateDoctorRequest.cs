@@ -1,9 +1,5 @@
 ﻿using AriaWebAPI.AriaAccessAPI.Core;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AriaWebAPI.AriaAccessAPI.Requests
 {
@@ -17,6 +13,10 @@ namespace AriaWebAPI.AriaAccessAPI.Requests
         public CreateDoctorRequest(string displayname, string doctorid, bool isoncologist, string lastname, string firstname, DateTime originationdate, string specialty) :
             base("CreateDoctorRequest:http://services.varian.com/AriaWebConnect/Link")
         {
+            if (string.IsNullOrWhiteSpace(doctorid))
+                throw new ArgumentNullException(nameof(doctorid), "doctorid must not be null or empty.");
+            if (string.IsNullOrWhiteSpace(lastname))
+                throw new ArgumentNullException(nameof(lastname), "lastname must not be null or empty.");
             DisplayName.Value = displayname;
             DoctorId.Value = doctorid;
             IsOncologist.Value = isoncologist;

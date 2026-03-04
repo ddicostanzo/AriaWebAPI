@@ -1,9 +1,4 @@
-﻿using AriaWebAPI.AriaAccessAPI.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AriaWebAPI.AriaAccessAPI.Core;
 
 namespace AriaWebAPI.AriaAccessAPI.DataTypes
 {
@@ -14,11 +9,11 @@ namespace AriaWebAPI.AriaAccessAPI.DataTypes
     {
         public PrescriptionVolumeInfo() : base("PrescriptionVolumeInfo:http://services.varian.com/AriaWebConnect/Link") { }
         public AriaAccessAttribute[] Attributes { get; set; }
-        public JsonString Depth { get; set; }
-        public JsonString DosePerFraction { get; set; }
-        public JsonString IsodoseLine { get; set; }
+        public JsonFloat Depth { get; set; }
+        public JsonFloat DosePerFraction { get; set; }
+        public JsonFloat IsodoseLine { get; set; }
         public JsonString PrescribeTo { get; set; }
         public JsonString StructureName { get; set; }
-        public JsonString TotalDose { get; set; }
+        public JsonFloat TotalDose { get; set; }
     }
 }

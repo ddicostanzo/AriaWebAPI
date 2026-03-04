@@ -8,7 +8,7 @@ namespace AriaWebAPI.AriaAccessAPI.Responses
     public class GetMachineAppointmentResponse : AriaAccessObject
     {
         public GetMachineAppointmentResponse() : base("GetMachineAppointmentResponse:http://services.varian.com/AriaWebConnect/Link") { }
-        public JsonString[] Attributes { get; set; }
+        public AriaAccessAttribute[] Attributes { get; set; }
         public MachineAppointment[] MachineAppointments { get; set; }
     }
 

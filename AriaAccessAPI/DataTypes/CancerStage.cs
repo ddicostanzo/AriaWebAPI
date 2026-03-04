@@ -1,4 +1,5 @@
 ﻿using AriaWebAPI.AriaAccessAPI.Core;
+using System.Text.Json.Serialization;
 
 namespace AriaWebAPI.AriaAccessAPI.DataTypes
 {
@@ -19,6 +20,7 @@ namespace AriaWebAPI.AriaAccessAPI.DataTypes
         public JsonBool IsWorkingStage { get; set; }
         public JsonInt SchemeId { get; set; }
         public JsonInt StageTimingId { get; set; }
-        public StagingCriteria[] StagingCriteria { get; set; }
+        [JsonPropertyName("StagingCriteria")]
+        public StagingCriteria[] Criteria { get; set; }
     }
 }

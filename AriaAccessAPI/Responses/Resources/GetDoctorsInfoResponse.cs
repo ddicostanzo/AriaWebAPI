@@ -7,7 +7,7 @@ namespace AriaWebAPI.AriaAccessAPI.Responses
     /// </summary>
     public class GetDoctorsInfoResponse : AriaAccessObject
     {
-        public GetDoctorsInfoResponse() : base("DoctorInfoResponse:http://services.varian.com/AriaWebConnect/Link") { }
+        public GetDoctorsInfoResponse() : base("GetDoctorsInfoResponse:http://services.varian.com/AriaWebConnect/Link") { }
         public AriaAccessAttribute[] Attributes { get; set; }
         public DoctorResponse[] DoctorsInfo { get; set; }
     }

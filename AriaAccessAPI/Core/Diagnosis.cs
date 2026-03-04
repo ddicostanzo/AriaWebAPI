@@ -1,14 +1,9 @@
-﻿using AriaWebAPI.AriaAccessAPI.DataTypes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AriaWebAPI.AriaAccessAPI.DataTypes;
 
 namespace AriaWebAPI.AriaAccessAPI.Core
 {
     /// <summary>
-    /// The Dianosis class representing a diagnosis object in the Aria Access API.
+    /// The Diagnosis class representing a diagnosis object in the Aria Access API.
     /// </summary>
     public abstract class Diagnosis : AriaAccessObject
     {

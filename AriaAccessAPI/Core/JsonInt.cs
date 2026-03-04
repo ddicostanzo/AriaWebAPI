@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace AriaWebAPI.AriaAccessAPI.Core
 {
@@ -11,7 +7,15 @@ namespace AriaWebAPI.AriaAccessAPI.Core
     /// </summary>
     public class JsonInt : AriaAccessObject
     {
+        /// <summary>
+        /// Gets or sets the integer value. A value of <see cref="int.MinValue"/> indicates the value has not been set.
+        /// </summary>
         public int Value { get; set; } = int.MinValue;
+
+        /// <summary>Gets a value indicating whether this instance has been explicitly set.</summary>
+        [System.Text.Json.Serialization.JsonIgnore]
+        public bool IsSet => Value != int.MinValue;
+
         public JsonInt(int val) : base("WholeNumber:http://services.varian.com/AriaWebConnect/Common")
         {
             Value = val;
