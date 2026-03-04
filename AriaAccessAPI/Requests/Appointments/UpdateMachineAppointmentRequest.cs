@@ -17,7 +17,6 @@ namespace AriaWebAPI.AriaAccessAPI.Requests
             base("UpdateMachineAppointmentRequest:http://services.varian.com/AriaWebConnect/Link")
 
         {
-            __type = response.__type;
             ActivityName = response.ActivityName;
             ActivityNote = response.ActivityNote;
             ActivityStatus = response.ActivityStatus;

@@ -1,6 +1,6 @@
 ﻿using AriaWebAPI.AriaAccessAPI.Core;
 using AriaWebAPI.AriaAccessAPI.Enums;
-using AriaWebAPI.Helpers;
+using AriaWebAPI.AriaAccessAPI.Helpers;
 
 namespace AriaWebAPI.AriaAccessAPI.Requests
 {
