@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace AriaWebAPI.AriaAccessAPI.Core
 {
@@ -12,29 +8,29 @@ namespace AriaWebAPI.AriaAccessAPI.Core
     public class JsonString : AriaAccessObject
     {
         public int MaxLength { get; set; } = 65535;
-        private string _Value;
+        private string _value;
         public JsonString(string s) : base("String:http://services.varian.com/AriaWebConnect/Common")
         {
-            _Value = s;
+            _value = s;
         }
         public JsonString() : base("String:http://services.varian.com/AriaWebConnect/Common") { }
         public JsonString(int len) : base("String:http://services.varian.com/AriaWebConnect/Common") { MaxLength = len; }
         public JsonString(string s, int len) : base("String:http://services.varian.com/AriaWebConnect/Common")
         {
-            _Value = s;
+            _value = s;
             MaxLength = len;
         }
         public string Value
         {
-            get { return (_Value == null) ? null : _Value; }
+            get { return _value; }
             set
             {
                 if (value == null) return;
                 if (value.Length > MaxLength)
                     throw new ArgumentException("The provided value has length greater than max length of this string.");
-                _Value = value;
+                _value = value;
             }
         }
-        
+
     }
 }

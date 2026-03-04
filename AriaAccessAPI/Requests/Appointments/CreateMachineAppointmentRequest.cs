@@ -1,10 +1,6 @@
 ﻿using AriaWebAPI.AriaAccessAPI.Core;
 using AriaWebAPI.AriaAccessAPI.DataTypes;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AriaWebAPI.AriaAccessAPI.Requests
 {
@@ -18,6 +14,10 @@ namespace AriaWebAPI.AriaAccessAPI.Requests
         public CreateMachineAppointmentRequest(string activityname, string department, string hospital, DateTime start, DateTime end, string patientid, string machineid) :
             base ("CreateMachineAppointmentRequest:http://services.varian.com/AriaWebConnect/Link")
         {
+            if (string.IsNullOrWhiteSpace(patientid))
+                throw new ArgumentNullException(nameof(patientid), "patientid must not be null or empty.");
+            if (string.IsNullOrWhiteSpace(machineid))
+                throw new ArgumentNullException(nameof(machineid), "machineid must not be null or empty.");
             ActivityName = new JsonString(activityname);
             DepartmentName = new JsonString(department);
             HospitalName = new JsonString(hospital);
@@ -29,6 +29,10 @@ namespace AriaWebAPI.AriaAccessAPI.Requests
         public CreateMachineAppointmentRequest(string activityname, string department, string hospital, DateTime start, DateTime end, string patientid, string machineid, AssociatedResource[] resources) :
            base("CreateMachineAppointmentRequest:http://services.varian.com/AriaWebConnect/Link")
         {
+            if (string.IsNullOrWhiteSpace(patientid))
+                throw new ArgumentNullException(nameof(patientid), "patientid must not be null or empty.");
+            if (string.IsNullOrWhiteSpace(machineid))
+                throw new ArgumentNullException(nameof(machineid), "machineid must not be null or empty.");
             ActivityName = new JsonString(activityname);
             DepartmentName = new JsonString(department);
             HospitalName = new JsonString(hospital);
@@ -41,6 +45,10 @@ namespace AriaWebAPI.AriaAccessAPI.Requests
         public CreateMachineAppointmentRequest(string activityname, string activitynote, string department, string hospital, DateTime start, DateTime end, string patientid, string machineid) :
             base("CreateMachineAppointmentRequest:http://services.varian.com/AriaWebConnect/Link")
         {
+            if (string.IsNullOrWhiteSpace(patientid))
+                throw new ArgumentNullException(nameof(patientid), "patientid must not be null or empty.");
+            if (string.IsNullOrWhiteSpace(machineid))
+                throw new ArgumentNullException(nameof(machineid), "machineid must not be null or empty.");
             ActivityName = new JsonString(activityname);
             DepartmentName = new JsonString(department);
             HospitalName = new JsonString(hospital);
@@ -53,6 +61,10 @@ namespace AriaWebAPI.AriaAccessAPI.Requests
         public CreateMachineAppointmentRequest(string activityname, string activitynote, string department, string hospital, DateTime start, DateTime end, string patientid, string machineid, AssociatedResource[] resources) :
             base("CreateMachineAppointmentRequest:http://services.varian.com/AriaWebConnect/Link")
         {
+            if (string.IsNullOrWhiteSpace(patientid))
+                throw new ArgumentNullException(nameof(patientid), "patientid must not be null or empty.");
+            if (string.IsNullOrWhiteSpace(machineid))
+                throw new ArgumentNullException(nameof(machineid), "machineid must not be null or empty.");
             ActivityName = new JsonString(activityname);
             DepartmentName = new JsonString(department);
             HospitalName = new JsonString(hospital);

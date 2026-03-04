@@ -1,14 +1,10 @@
-﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AriaWebAPI.AriaAccessAPI.DataTypes
 {
     public static class DiagnosisLookUpTypesAndValues
     {
-        public static Dictionary<int, DiagnosisLookUpItem> DiagnosisMethod = new Dictionary<int, DiagnosisLookUpItem>()
+        public static readonly IReadOnlyDictionary<int, DiagnosisLookUpItem> DiagnosisMethod = new Dictionary<int, DiagnosisLookUpItem>()
         {
             { 0, new DiagnosisLookUpItem("Unknown", "ENU", "0") },
             { 1, new DiagnosisLookUpItem("Biopsy", "ENU", "1") },
@@ -29,7 +25,7 @@ namespace AriaWebAPI.AriaAccessAPI.DataTypes
             { 104, new DiagnosisLookUpItem("Extra", "ENU", "104") },
         };
 
-        public static Dictionary<int, DiagnosisLookUpItem> DiagnosisStatus = new Dictionary<int, DiagnosisLookUpItem>()
+        public static readonly IReadOnlyDictionary<int, DiagnosisLookUpItem> DiagnosisStatus = new Dictionary<int, DiagnosisLookUpItem>()
         {
             { 1, new DiagnosisLookUpItem("Cured", "ENU", "1") },
             { 2, new DiagnosisLookUpItem("Subsided", "ENU", "2") },
@@ -41,10 +37,9 @@ namespace AriaWebAPI.AriaAccessAPI.DataTypes
             { 8, new DiagnosisLookUpItem("In Remission", "ENU", "8") },
             { 9, new DiagnosisLookUpItem("Resolved", "ENU", "9") },
             { 10, new DiagnosisLookUpItem("Progressed", "ENU", "10") },
-
         };
 
-        public static Dictionary<int, DiagnosisLookUpItem> DiagnosisScheme = new Dictionary<int, DiagnosisLookUpItem>()
+        public static readonly IReadOnlyDictionary<int, DiagnosisLookUpItem> DiagnosisScheme = new Dictionary<int, DiagnosisLookUpItem>()
         {
             { 19, new DiagnosisLookUpItem("ICD-9-CM", "ENU", "19") },
             { 20, new DiagnosisLookUpItem("ICD-10", "ENU", "20") },
@@ -52,9 +47,6 @@ namespace AriaWebAPI.AriaAccessAPI.DataTypes
             { 30, new DiagnosisLookUpItem("ICD-9", "ENU", "30") },
             { 40, new DiagnosisLookUpItem("CPT", "ENU", "40") },
             { 60, new DiagnosisLookUpItem("ICD-10-CM", "ENU", "60") },
-            
         };
     }
-
-
 }

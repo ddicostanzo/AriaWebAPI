@@ -1,10 +1,5 @@
 ﻿using AriaWebAPI.AriaAccessAPI.Core;
 using AriaWebAPI.AriaAccessAPI.Responses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AriaWebAPI.AriaAccessAPI.Requests
 {
@@ -23,7 +18,6 @@ namespace AriaWebAPI.AriaAccessAPI.Requests
         public UpdatePatientDiagnosisRequest(DiagnosisResponse response) : 
             base("UpdatePatientDiagnosisRequest:http://services.varian.com/AriaWebConnect/Link")
         {
-            AreaName = response.AreaName;
             BehaviorCode = response.BehaviorCode;
             ClinicalDescription = response.ClinicalDescription;
             DiagnosisDate = response.DiagnosisDate;

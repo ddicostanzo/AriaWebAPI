@@ -1,4 +1,5 @@
 ﻿using AriaWebAPI.AriaAccessAPI.Core;
+using System;
 
 namespace AriaWebAPI.AriaAccessAPI.Requests
 {
@@ -12,6 +13,10 @@ namespace AriaWebAPI.AriaAccessAPI.Requests
         public CreatePatientDiagnosisRequest(string clinicaldesc, string dxcode, int dx_scheme, string patientid):
             base("CreatePatientDiagnosisRequest:http://services.varian.com/AriaWebConnect/Link")
         {
+            if (string.IsNullOrWhiteSpace(patientid))
+                throw new ArgumentNullException(nameof(patientid), "patientid must not be null or empty.");
+            if (string.IsNullOrWhiteSpace(dxcode))
+                throw new ArgumentNullException(nameof(dxcode), "dxcode must not be null or empty.");
             ClinicalDescription = new JsonString(clinicaldesc);
             DiagnosisCode = new JsonString(dxcode);
             DiagnosisScheme = new JsonInt(dx_scheme);

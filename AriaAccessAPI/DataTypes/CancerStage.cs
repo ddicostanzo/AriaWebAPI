@@ -19,6 +19,6 @@ namespace AriaWebAPI.AriaAccessAPI.DataTypes
         public JsonBool IsWorkingStage { get; set; }
         public JsonInt SchemeId { get; set; }
         public JsonInt StageTimingId { get; set; }
-        public StagingCriteria[] StagingCriteria { get; set; }
+        public StagingCriteria[] Criteria { get; set; }
     }
 }

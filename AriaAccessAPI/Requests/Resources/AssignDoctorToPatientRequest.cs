@@ -1,9 +1,5 @@
 ﻿using AriaWebAPI.AriaAccessAPI.Core;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AriaWebAPI.AriaAccessAPI.Requests
 {
@@ -15,25 +11,33 @@ namespace AriaWebAPI.AriaAccessAPI.Requests
         public JsonString AreaName { get; set; } = new JsonString("AWC:AssignDoctorToPatient");
         public JsonString Comment { get; set; } = new JsonString();
         public JsonString DoctorId { get; set; } = new JsonString(16);
-        public JsonString PatientID { get; set; } = new JsonString(25);
+        public JsonString PatientId { get; set; } = new JsonString(25);
         public JsonBool IsOncologist { get; set; } = new JsonBool(true);
         public JsonBool IsPrimary { get; set; } = new JsonBool(true);
 
         public AssignDoctorToPatientRequest(string comment, string doctorid, string patientid, bool isoncologist, bool isprimary) :
             base("AssignDoctorToPatientRequest:http://services.varian.com/AriaWebConnect/Link")
         {
+            if (string.IsNullOrWhiteSpace(doctorid))
+                throw new ArgumentNullException(nameof(doctorid), "doctorid must not be null or empty.");
+            if (string.IsNullOrWhiteSpace(patientid))
+                throw new ArgumentNullException(nameof(patientid), "patientid must not be null or empty.");
             Comment.Value = comment;
             DoctorId.Value = doctorid;
-            PatientID.Value = patientid;
+            PatientId.Value = patientid;
             IsOncologist.Value = isoncologist;
             IsPrimary.Value = isprimary;
         }
-        public AssignDoctorToPatientRequest(string comment, string doctorid, string patientid, bool isoncologist, bool isprimary, string type) :
+        protected AssignDoctorToPatientRequest(string comment, string doctorid, string patientid, bool isoncologist, bool isprimary, string type) :
            base(type)
         {
+            if (string.IsNullOrWhiteSpace(doctorid))
+                throw new ArgumentNullException(nameof(doctorid), "doctorid must not be null or empty.");
+            if (string.IsNullOrWhiteSpace(patientid))
+                throw new ArgumentNullException(nameof(patientid), "patientid must not be null or empty.");
             Comment.Value = comment;
             DoctorId.Value = doctorid;
-            PatientID.Value = patientid;
+            PatientId.Value = patientid;
             IsOncologist.Value = isoncologist;
             IsPrimary.Value = isprimary;
         }

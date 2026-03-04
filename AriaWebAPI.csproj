@@ -153,7 +153,7 @@
     <Compile Include="AriaAccessAPI\Responses\Helpers\GetDiagnosisLookUpListResponse.cs" />
     <Compile Include="AriaAccessAPI\Responses\Resources\GetDoctorsAssignedToPatientResponse.cs" />
     <Compile Include="AriaAccessAPI\Responses\Resources\GetDoctorsInfoResponse.cs" />
-    <Compile Include="AriaAccessAPI\Responses\Resources\GetMachineListReponse.cs" />
+    <Compile Include="AriaAccessAPI\Responses\Resources\GetMachineListResponse.cs" />
     <Compile Include="AriaAccessAPI\Responses\Diagnosis\GetPatientDiagnosesResponse.cs" />
     <Compile Include="AriaAccessAPI\Responses\Core\PatientResponse.cs" />
     <Compile Include="AriaAccessAPI\DataTypes\UserDefinedAttributes.cs" />
@@ -167,14 +167,12 @@
     <Compile Include="AriaAccessAPI\Requests\Appointments\GetMachineAppointmentRequest.cs" />
     <Compile Include="AriaAccessAPI\Requests\Demographics\GetPatientsRequest.cs" />
     <Compile Include="AriaAccessAPI\Requests\Demographics\UpdatePatientRequest.cs" />
+    <Compile Include="AriaAccessAPI\Requests\RequestHelpers.cs" />
     <Compile Include="AriaAccessAPI\Responses\Appointments\GetMachineAppointmentResponse.cs" />
     <Compile Include="AriaAccessAPI\Responses\Demographics\GetPatientsResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include=".env">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>

@@ -1,9 +1,5 @@
 ﻿using AriaWebAPI.AriaAccessAPI.Core;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AriaWebAPI.AriaAccessAPI.Requests
 {
@@ -32,20 +28,12 @@ namespace AriaWebAPI.AriaAccessAPI.Requests
                                                           "UpdateDoctorAssignedToPatientRequest:http://services.varian.com/AriaWebConnect/Link") 
         {
             AreaName.Value = "AWC:UpdateDoctorToPatient";
-            Comment.Value = comment;
-            DoctorId.Value = doctorid;
-            PatientID.Value = patientid;
-            IsOncologist.Value = isoncologist;
-            IsPrimary.Value = isprimary;
 
             IsTimeStampCheckRequired.Value = istimestamprequired;
 
+            RequestHelpers.ValidateTimestamp(istimestamprequired, timestamp);
             if (istimestamprequired && timestamp.HasValue)
                 TimeStamp = new JsonDttm(timestamp.Value);
-            if (istimestamprequired && !timestamp.HasValue)
-                throw new ArgumentException("If IsTimeStamp is set to True then a TimeStamp is required");
-            if (!istimestamprequired && timestamp.HasValue)
-                throw new ArgumentException("If IsTimeStamp is set to False then timestamp must be null");
 
         }
 

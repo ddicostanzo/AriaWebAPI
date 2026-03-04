@@ -1,5 +1,6 @@
 ﻿using AriaWebAPI.AriaAccessAPI.Core;
 using AriaWebAPI.AriaAccessAPI.Enums;
+using AriaWebAPI.Helpers;
 
 namespace AriaWebAPI.AriaAccessAPI.Requests
 {
@@ -30,8 +31,7 @@ namespace AriaWebAPI.AriaAccessAPI.Requests
 
             if (departmentid != DepartmentId.Null)
             {
-                string dept = (departmentid == DepartmentId.JamesRadOnc) ? "James Rad Onc" : "SSCBC Rad Onc";
-                DepartmentID = new JsonString(dept);
+                DepartmentID = new JsonString(DeptAndHospitalEnumParser.DepartmentfromEnum[departmentid]);
             }
         }
 

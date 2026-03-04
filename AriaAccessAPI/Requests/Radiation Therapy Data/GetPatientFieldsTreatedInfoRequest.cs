@@ -1,9 +1,5 @@
 ﻿using AriaWebAPI.AriaAccessAPI.Core;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AriaWebAPI.AriaAccessAPI.Requests
 {
@@ -21,6 +17,10 @@ namespace AriaWebAPI.AriaAccessAPI.Requests
         public GetPatientFieldsTreatedInfoRequest(string mrn, string courseid, DateTime start, DateTime end) :
             base("GetPatientFieldsTreatedInfoRequest:http://services.varian.com/AriaWebConnect/Link")
         {
+            if (string.IsNullOrWhiteSpace(mrn))
+                throw new ArgumentNullException(nameof(mrn), "mrn must not be null or empty.");
+            if (string.IsNullOrWhiteSpace(courseid))
+                throw new ArgumentNullException(nameof(courseid), "courseid must not be null or empty.");
             PatientId = new JsonString(mrn);
             CourseId = new JsonString(courseid);
             TreatmentStartDate = new JsonDttm(start, true);

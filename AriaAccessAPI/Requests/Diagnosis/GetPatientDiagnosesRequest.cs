@@ -1,9 +1,5 @@
 ﻿using AriaWebAPI.AriaAccessAPI.Core;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AriaWebAPI.AriaAccessAPI.Requests
 {
@@ -17,6 +13,8 @@ namespace AriaWebAPI.AriaAccessAPI.Requests
         public GetPatientDiagnosesRequest(string mrn, int? diagnosisid) : 
             base("GetPatientDiagnosesRequest:http://services.varian.com/AriaWebConnect/Link")
         {
+            if (string.IsNullOrWhiteSpace(mrn))
+                throw new ArgumentNullException(nameof(mrn), "mrn must not be null or empty.");
             PatientId = new JsonString(mrn);
             if(diagnosisid.HasValue)
                 PatientDiagnosisId = new JsonInt(diagnosisid.Value);

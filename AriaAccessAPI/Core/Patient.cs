@@ -1,9 +1,4 @@
-﻿using AriaWebAPI.AriaAccessAPI.DataTypes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AriaWebAPI.AriaAccessAPI.DataTypes;
 
 namespace AriaWebAPI.AriaAccessAPI.Core
 {
@@ -19,7 +14,7 @@ namespace AriaWebAPI.AriaAccessAPI.Core
         public JsonString AddressLine2 { get; set; } = new JsonString();
         public JsonString AutopsyOutcome { get; set; } = new JsonString();
         public JsonString AutopsyStatus { get; set; } = new JsonString();
-        public JsonString AreaName { get; set; } 
+        public JsonString AreaName { get; set; }
         public JsonString BirthCity { get; set; } = new JsonString();
         public JsonString BirthCountry { get; set; } = new JsonString();
         public JsonString BirthCounty { get; set; } = new JsonString();
@@ -54,6 +49,10 @@ namespace AriaWebAPI.AriaAccessAPI.Core
         public JsonString NameSuffix { get; set; } = new JsonString();
         public JsonString NewPatientId1 { get; set; } = new JsonString(25);
         public JsonString Occupation { get; set; } = new JsonString();
+        /// <summary>
+        /// Passport number. WARNING: This is sensitive PII/PHI.
+        /// Callers must ensure this field is appropriately protected in logs, responses, and storage.
+        /// </summary>
         public JsonString PassportNumber { get; set; } = new JsonString();
         public JsonString PatientId1 { get; set; } = new JsonString(25);
         public JsonString PatientId2 { get; set; } = new JsonString(string.Empty, 25);
@@ -70,6 +69,11 @@ namespace AriaWebAPI.AriaAccessAPI.Core
         public JsonString StateOrProvince { get; set; } = new JsonString();
         public JsonString Sex { get; set; } = new JsonString();
         public JsonString SmokingStatus { get; set; } = new JsonString();
+        /// <summary>
+        /// Social Security Number. WARNING: This is highly sensitive PHI (Protected Health Information).
+        /// Callers must ensure this field is masked, encrypted, or redacted in logs, responses, and storage.
+        /// Never expose this value in API responses without appropriate access controls.
+        /// </summary>
         public JsonString SSN { get; set; } = new JsonString(9);
         public JsonDttm TimeStamp { get; set; }
         public JsonString TransportName { get; set; } = new JsonString();
